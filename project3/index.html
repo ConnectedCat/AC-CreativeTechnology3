@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photon connect</title>
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+    <script>
+        let URL = "https://api.particle.io/v1/devices/22003e000c47373336323230/pot_value?access_token=7e89b55d451e5e45aa6ec72c8622cc3cd16609d1";
+        let data = "";
+        let currentTime, prevTime;
+        let value = 10;
+
+        function setup(){
+            createCanvas(400, 400);
+        }
+
+        function draw(){
+            background(255);
+
+            currentTime = millis() % 1000;
+            
+            if(currentTime < prevTime){
+                data = loadJSON(URL, processData);
+            }
+            
+            fill(255, 0, 0);
+            circle(width/2, height/2, value);
+            
+            prevTime = currentTime;
+        }
+
+        function processData(data){
+            console.log(data.result);
+            value = map(parseInt(data.result), 0, 4096, 0, 400);
+            console.log(value);
+        }
+
+    </script>
+</body>
+</html>

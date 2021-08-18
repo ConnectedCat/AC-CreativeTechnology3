@@ -1,0 +1,18 @@
+main {
+    width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+img {
+    max-width: 600px;
+}
+
+#Special {
+    font-style: italic;
+    font-weight: bold;
+}
+
+body {
+    background-color:#d3c44d;
+}
