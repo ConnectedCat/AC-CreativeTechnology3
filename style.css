@@ -8,7 +8,6 @@
     --tab-bg-color: rgb(225, 162, 64);
     --special-bg-color: rgb(190, 90, 184);
     --corner-bevel: 100;
-
 }
 
 html {
@@ -208,6 +207,10 @@ hr {
         display: inline-block;
         padding: 1rem;
         border-right: 1px solid black;
+    }
+
+    footer nav ul li:last-child {
+        background-color: var(--special-bg-color);
     }
 
 }
