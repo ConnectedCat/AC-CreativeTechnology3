@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Space+Mono:wght@400;700&display=swap');
+@import url(typography.css);
 
 
 
@@ -116,25 +116,37 @@ aside, footer {
 
 /* ENDOF NAVBAR */
 
-p {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 400;
-    line-height: 1.65;
-    margin: 0 0.3rem 0;
+/* MAIN SECTIONS */
+main h1 {
+    text-align: center;
 }
 
 main ul {
     font-style: italic;
 }
 
-#project-brief {
+main ul li {
+    margin-bottom: 1rem;
+}
+
+main a,
+main a:hover,
+main a:focus,
+main a:active,
+main a:visited {
+    border-bottom: 1px solid var(--special-bg-color);
+    font-style: oblique;
+}
+
+.project-brief,
+.week {
     padding-left: 10%;
     margin-top: 10%;
     margin-bottom: 10%;
     width: 83%;
 }
 
-#documentation {
+.documentation {
     border-style: dotted;
     border-width: 1px;
     border-radius: 10px;
@@ -148,119 +160,7 @@ hr {
     margin: 80px 0 80px;
 }
 
-strong {
-    font-family: 'Space Mono', monospace;
-    font-weight: 600;
-}
 
-section {
-    padding-left: 10%;
-    margin-top: 10%;
-    margin-bottom: 10%;
-    width: 83%;
-}
-
-main a,
-main a:hover,
-main a:focus,
-main a:active,
-main a:visited {
-    border-bottom: 1px solid var(--special-bg-color);
-    font-style: oblique;
-}
-
-
-h2 {
-    margin: 3rem 0 2rem;
-    text-transform: uppercase;
-}
-
-h3 {
-    font-size: 3rem;
-    font-family: 'Space Mono', monospace;
-    font-style: normal;
-    font-weight: 400;
-    letter-spacing: -3px;
-    line-height: 107.5%;
-    text-transform: uppercase;
-    margin-bottom: 30px;
-    margin-block-start: 0em;
-    margin-block-end: 0em;
-}
-
-h4 {
-    font-family: 'Open Sans', sans-serif;
-    font-weight: 600;
-    font-size: 1.6rem;
-    text-align: center;
-}
-
-h5 {
-    font-family: 'Space Mono', monospace;
-    font-weight: 600;
-    font-size: 1.2rem;
-    text-decoration: underline;
-}
-
-h6 {
-    font-size: 5vh;
-    font-family: 'Space Mono', monospace;
-    font-weight: 400;
-    letter-spacing: -1px;
-    line-height: 107.5%;
-    text-transform: uppercase;
-}
-
-
-.img-mask {
-    height: 70px;
-    width: 300px;
-    position: relative;
-    overflow: hidden;
-}
-
-.img-mask img {
-    position: absolute;
-    top: -70px;
-    left: 0px;
-}
-
-.flexbox {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
-    grid-gap: 1rem;
-}
-
-.week {
-    background-color: var(--tab-bg-color);
-    border-bottom-left-radius: 3rem;
-    border-top-right-radius: 3rem;
-    padding: 1rem 2rem 3rem 2rem;
-}
-
-.grid h2 {
-    grid-column: 1 / -1;
-    background-color: var(--special-bg-color);
-    padding: 2rem;
-}
-
-.grid h2 a,
-.grid h2 a:hover,
-.grid h2 a:focus,
-.grid h2 a:active,
-.grid h2 a:visited {
-    border-bottom-color: var(--tab-bg-color);
-}
-
-main ul li {
-    margin-bottom: 1rem;
-}
 
 
 /* MEDIA QUERIES */
@@ -270,21 +170,6 @@ main ul li {
         display: none;
     }
 
-    main {
-        padding: 4rem 0;
-    }
-
-    .flexbox {
-        flex-direction: row;
-    }
-
-    .columns {
-        columns: 2;
-    }
-
-    .columns div {
-        break-inside: avoid;
-    }
 
     /* LAGRER SCREEN NAV */
     aside, footer {
@@ -294,8 +179,11 @@ main ul li {
     aside {
         writing-mode: vertical-lr;
         position: fixed;
-        top: 1rem;
-        right: 1rem;
+        top: 0;
+        right: 0;
+        height: 100vh;
+        padding: 1rem;
+        border-left: 2px solid black;
     }
 
     aside .logo:first-child {
@@ -325,7 +213,8 @@ main ul li {
 }
 
 @media (min-width: 960px) {
-    body {
+    section {
         width: 940px;
+        margin: auto;
     }
 }
