@@ -26,6 +26,28 @@ main {
     padding: 47px 0.5rem 0;
 }
 
+
+/* BASIC RESET */
+a,
+a:hover,
+a:focus,
+a:active,
+a:visited {
+    color: black;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+}
+
+ul {
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+
 /* NAVBAR */
 
 header {
@@ -37,10 +59,11 @@ header {
     background-color: var(--main-bg-color);
 }
 
-header .logo {
+.logo {
     font-size: 1.5rem;
     line-height: initial;
     margin: 0rem;
+    display: inline-block;
 }
 
 header nav {
@@ -52,7 +75,6 @@ header nav {
 
 header nav ul {
     display: none;
-    list-style: none;
     padding: 1rem;
     margin: 0rem;
     position: absolute;
@@ -64,10 +86,10 @@ header nav ul {
     border-bottom: 1px solid black;
 }
 
-header nav a {
-    font-style: normal;
-    border-bottom: none;
+header nav ul li {
+    padding: 0.25rem 0;
 }
+
 
 #navToggle {
     display: none;
@@ -101,7 +123,7 @@ p {
     margin: 0 0.3rem 0;
 }
 
-ul {
+main ul {
     font-style: italic;
 }
 
@@ -138,16 +160,15 @@ section {
     width: 83%;
 }
 
-a,
-a:hover,
-a:focus,
-a:active,
-a:visited {
-    color: black;
+main a,
+main a:hover,
+main a:focus,
+main a:active,
+main a:visited {
     border-bottom: 1px solid var(--special-bg-color);
-    text-decoration: none;
     font-style: oblique;
 }
+
 
 h2 {
     margin: 3rem 0 2rem;
@@ -190,11 +211,6 @@ h6 {
     text-transform: uppercase;
 }
 
-nav ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
 
 .img-mask {
     height: 70px;
@@ -242,25 +258,20 @@ nav ul {
     border-bottom-color: var(--tab-bg-color);
 }
 
-ul {
-    padding: 0;
-    list-style: none;
-}
-
-.week ul li,
-ul li {
+main ul li {
     margin-bottom: 1rem;
 }
 
-@media (min-width: 768px) {
 
+/* MEDIA QUERIES */
+
+@media (min-width: 768px) {
     header {
-        text-align: right;
-        margin: 3rem 0;
+        display: none;
     }
 
     main {
-        padding: 0px;
+        padding: 4rem 0;
     }
 
     .flexbox {
@@ -274,93 +285,47 @@ ul li {
     .columns div {
         break-inside: avoid;
     }
+
+    /* LAGRER SCREEN NAV */
+    aside, footer {
+        display: initial;
+    }
+
+    aside {
+        writing-mode: vertical-lr;
+        position: fixed;
+        top: 1rem;
+        right: 1rem;
+    }
+
+    aside .logo:first-child {
+        margin-inline-end: 1rem;
+    }
+
+    footer {
+        position: fixed;
+        bottom: 0px;
+        left: 0px;
+        border-top: 2px solid black;
+        background-color: var(--main-bg-color);
+        width: 100vw;
+    }
+
+    footer nav ul {
+        display: flex;
+        justify-content: start;
+    }
+
+    footer nav ul li {
+        display: inline-block;
+        padding: 1rem;
+        border-right: 1px solid black;
+    }
+
 }
 
 @media (min-width: 960px) {
     body {
         width: 940px;
     }
-}
-
-
-/*respionsive menu bars*/
-
-.bottomnav {
-    transform-origin: bottom;
-    overflow: hidden;
-    background-color: rgb(201, 132, 29);
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    margin: 0;
-    z-index: 10;
-}
-
-.bottomnav a {
-    float: left;
-    display: block;
-    color: #000000;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
-    font-size: 17px;
-    font-family: 'Space Mono', monospace;
-    font-style: normal;
-    letter-spacing: 1.5%;
-    border-style: 5px solid black;
-    clip-path: polygon(0 0, 100% 0, 100% 80%, 90% 100%, 10% 100%, 0 80%);
-    /* z-index: -1;
-  -webkit-transform: perspective(15px) rotateX(-5deg);
-  -moz-transform: perspective(15px) rotateX(-5deg);
-  transform: perspective(15px) rotateX(-5deg);
-  -webkit-transform-origin: top;
-  -moz-transform-origin: top;
-  transform-origin: top;
-  background-color: rgb(243, 199, 255);
-  border: 1.5px solid #000000; */
-}
-
-/* .bottomnav a:last-child{
-  background-color: rgb(255, 255, 255);
-} */
-
-.bottomnav a:hover {
-    background-color: rgb(255, 255, 255);
-    color: black;
-}
-
-.bottomnav a.active {
-    background-color: rgb(243, 199, 255);
-    color: rgb(0, 0, 0);
-}
-
-.bottomnav .icon {
-    display: none;
-}
-
-@media screen and (max-width: 600px) {
-    .navbar a:not(:first-child) {
-        display: none;
-    }
-
-    .navbar a.icon {
-        float: right;
-        display: block;
-    }
-}
-
-@media screen and (max-width: 600px) {
-    .navbar.responsive .icon {
-        position: absolute;
-        right: 0;
-        bottom: 0;
-    }
-
-    .navbar.responsive a {
-        float: none;
-        display: block;
-        text-align: left;
-    }
-
 }
