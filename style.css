@@ -1,8 +1,14 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Space+Mono:wght@400;700&display=swap');
+
+
+
 :root {
     font-size: 14px;
     --main-bg-color: rgb(243, 199, 255);
     --tab-bg-color: rgb(225, 162, 64);
     --special-bg-color: rgb(190, 90, 184);
+    --corner-bevel: 100;
+    
 }
 
 html {
@@ -11,9 +17,67 @@ html {
 
 body {
     width: 100%;
-    margin: 0px auto 6rem;
-    font-family: 'Courier New', Courier, monospace;
+    margin: 0px auto 0;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400;
+    font-size: 1.1rem;
+}
+
+main {
+    width: 95%;
+    margin: 0px auto 0px;
+    padding: 5%;
+}
+
+p {
+    width: 100%;
+    /* margin: 0px auto 6rem; */
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 400; 
+    font-size: 1.1rem;
+    line-height: 1.65;
+    margin-right: 0;
+    margin-bottom: 35px;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
+
+}
+
+ul {
+    font-style: italic;
+}
+
+#project-brief {
+    padding-left: 10%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    width:83%;
+}
+
+#documentation {
+    border-style: dotted;
+    border-width: 1px;
+    border-radius: 10px;
+    padding: 5%;
+    margin: 10% 0 10%;
+}
+
+hr {
+    stroke-width: 1px;
+    border-style: dotted; 
+    margin: 80px 0 80px;
+}
+
+strong {
+    font-family: 'Space Mono', monospace;
     font-weight: 600;
+}
+
+section {
+    padding-left: 10%;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    width:83%;
 }
 
 a,
@@ -33,16 +97,72 @@ h2 {
 }
 
 h3 {
-    font-size: 1.4rem;
+    font-size: 8vh;
+     font-family: 'Space Mono', monospace;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: -3px;
+  line-height: 107.5%;
+  text-transform: uppercase;
+      margin-bottom: 30px;
+    margin-block-start: 0em;
+    margin-block-end: 0em;
 }
 
 h4 {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: 600; 
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+h5 {
+    font-family: 'Space Mono', monospace;
+    font-weight: 600;
     font-size: 1.2rem;
+    text-decoration: underline;
+}
+
+h6 {
+    font-size: 5vh;
+    font-family: 'Space Mono', monospace;
+    font-weight: 400; 
+    letter-spacing: -1px;
+  line-height: 107.5%;
+  text-transform: uppercase;
 }
 
 header {
     margin: 3rem;
     text-align: center;
+}
+
+.class-title h6 {
+    font-size: 1.3rem;
+    line-height: 0;
+    margin:20px;
+    letter-spacing: 0.8px;
+}
+
+.class-title a {
+    border-style: dotted;
+    margin: 0;
+    padding: 0;
+    border-width: 0.5px;
+    font-style: normal;
+}
+
+.class-title {
+    position: fixed;
+    transform-origin: top left;
+    transform: rotate(90deg);
+    width: 100vh;
+    top:0;
+    left: 98.5vw;
+    padding: 0;
+    border-bottom-style: solid;
+    border-bottom-width: 1px;
+        display:flex;
 }
 
 main {
@@ -142,4 +262,83 @@ ul li {
     body {
         width: 940px;
     }
+}
+
+
+/*respionsive menu bars*/
+
+.bottomnav {
+  transform-origin: bottom;
+  overflow: hidden;
+  background-color:rgb(201, 132, 29);
+  position: fixed;
+  left:0;
+  bottom: 0;
+  width: 100%;
+  margin: 0;
+  z-index: 10;
+}
+
+.bottomnav a {
+float: left;
+  display: block;
+  color: #000000;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  font-family: 'Space Mono', monospace;
+  font-style: normal;
+  letter-spacing: 1.5%;
+  border-style: 5px solid black;
+  clip-path: polygon(0 0, 100% 0, 100% 80%, 90% 100%, 10% 100%, 0 80%);
+/* z-index: -1;
+  -webkit-transform: perspective(15px) rotateX(-5deg);
+  -moz-transform: perspective(15px) rotateX(-5deg);
+  transform: perspective(15px) rotateX(-5deg);
+  -webkit-transform-origin: top;
+  -moz-transform-origin: top;
+  transform-origin: top;
+  background-color: rgb(243, 199, 255);
+  border: 1.5px solid #000000; */
+}
+
+/* .bottomnav a:last-child{
+  background-color: rgb(255, 255, 255);
+} */
+
+.bottomnav a:hover {
+  background-color: rgb(255, 255, 255);
+  color: black;
+}
+
+.bottomnav a.active {
+  background-color:rgb(243, 199, 255);
+  color: rgb(0, 0, 0);
+}
+
+.bottomnav .icon {
+  display: none;
+}
+
+@media screen and (max-width: 600px) {
+  .navbar a:not(:first-child) {display: none;}
+  .navbar a.icon {
+    float: right;
+    display: block;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .navbar.responsive .icon {
+    position: absolute;
+    right: 0;
+    bottom:0;
+  }
+  .navbar.responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
 }
