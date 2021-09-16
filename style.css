@@ -57,6 +57,9 @@ header {
   position: fixed;
   width: 100vw;
   top: 0;
+  background-color: var(--main-bg-color);
+  background-image: url("background-grid.png");
+  background-size: 100%;
 }
 
 .logo {
