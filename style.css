@@ -16,6 +16,9 @@ body {
   margin: 0px auto 0;
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
+  background-image: url("background-grid.png");
+  background-size: 100%;
+  padding-bottom: 60px;
 }
 
 main {
@@ -48,14 +51,12 @@ ul {
 }
 
 /* NAVBAR */
-
 header {
   padding: 0;
-  border-bottom: 2px solid black;
+  border-bottom: 1px solid black;
   position: fixed;
   width: 100vw;
   top: 0;
-  background-color: var(--main-bg-color);
 }
 
 .logo {
@@ -71,6 +72,8 @@ header nav {
   justify-content: space-between;
   align-items: center;
   padding: 0 1rem;
+  z-index: 10;
+  /* background-color: var(--main-bg-color); */
 }
 
 header nav ul {
@@ -84,6 +87,7 @@ header nav ul {
   width: 100vw;
   background-color: var(--main-bg-color);
   border-bottom: 1px solid black;
+  z-index: 10;
 }
 
 header nav ul li {
@@ -137,12 +141,17 @@ main a:visited {
   font-style: oblique;
 }
 
+.project-resources,
 .project-brief,
 .week {
   padding-left: 10%;
   margin-top: 10%;
   margin-bottom: 10%;
   width: 83%;
+}
+
+.project-resources h4 {
+  text-align: left;
 }
 
 .documentation {
@@ -155,9 +164,9 @@ main a:visited {
 }
 
 hr {
-  stroke-width: 1px;
-  border-style: dashed;
+  border-top: 1px dashed black;
   margin: 80px 0 80px;
+  z-index: -1;
 }
 
 /* MEDIA QUERIES */
@@ -181,6 +190,8 @@ hr {
     height: 100vh;
     padding: 0.8rem;
     border-left: 1px solid black;
+    background-color: var(--main-bg-color);
+    background-image: url("background-grid.png");
   }
 
   aside .logo:first-child {
@@ -218,6 +229,23 @@ hr {
   footer nav ul li:last-child:hover {
     background: white;
   }
+}
+
+/*seminar layout*/
+.seminar-intro,
+.seminar p,
+.seminar ul {
+  padding-left: 10%;
+  margin: 3rem 0 3rem;
+  width: 83%;
+}
+
+header .seminar-title {
+  padding: 0;
+  border-bottom: 1px solid black;
+  position: fixed;
+  width: 100vw;
+  top: 0;
 }
 
 @media (min-width: 800px) {
