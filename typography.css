@@ -16,33 +16,16 @@ h3 {
 
 h1 {
   font-size: 4rem;
+  text-align: left;
 }
 
-@media (min-width: 768px) {
-  h1 {
-    font-size: 6rem;
-  }
+h3 {
+  font-size: 1.8rem;
+  text-align: left;
 }
 
 h2 {
   font-size: 3rem;
-}
-
-@media (min-width: 768px) {
-  h2 {
-    font-size: 5rem;
-  }
-}
-
-h3 {
-  font-size: 2rem;
-}
-
-@media (min-width: 768px) {
-  h3 {
-    font-size: 3rem;
-    text-align: center;
-  }
 }
 
 h4 {
@@ -52,18 +35,11 @@ h4 {
   text-align: center;
 }
 
-@media (min-width: 768px) {
-}
-
 h5 {
   font-family: "Space Mono", monospace;
   font-weight: 600;
-  /* font-size: 1.2rem; */
   text-decoration: underline;
   margin-bottom: 2rem;
-}
-
-@media (min-width: 768px) {
 }
 
 h6 {
@@ -75,47 +51,44 @@ h6 {
   text-transform: uppercase;
 }
 
-@media (min-width: 768px) {
-}
-
 p {
   font-family: "Open Sans", sans-serif;
   font-weight: 400;
   line-height: 1.65;
-  margin: 0 0.3rem 2rem;
+  margin: 0 0.3rem 0;
 }
 
 strong {
   font-family: "Space Mono", monospace;
   font-weight: 600;
-}
-
-/* typography for seminar */
-.seminar h2 {
-  text-transform: none;
-  font-size: 2rem;
-  letter-spacing: -1px;
-  padding: 0 0.3rem 0;
-  margin: 0 auto 0;
-}
-
-.seminar span {
-  text-transform: uppercase;
+  font-style: normal;
 }
 
 .date {
   font-size: 1.8rem;
   font-style: italic;
   font-weight: 400;
-  padding: 0 0.3rem 0;
+  padding: 0;
   text-align: left;
-  margin: 0.3rem 0 0.3rem;
+  margin: 0.3rem 0 0;
 }
 
-.seminar ul li strong {
-  font-style: normal;
+.seminar-title h1 {
+  text-align: left;
 }
 
-.seminar ul li strong::before {
-  content: "▫ ";
+@media (min-width: 768px) {
+  h1 {
+    font-size: 6rem;
+    text-align: left;
+  }
+
+  h3 {
+    font-size: 3rem;
+    text-align: left;
+  }
+
+  h2 {
+    font-size: 5rem;
+  }
 }

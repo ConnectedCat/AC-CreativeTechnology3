@@ -2,7 +2,7 @@
 
 :root {
   font-size: 16px;
-  --main-bg-color: rgb(243, 199, 255);
+  --main-bg-color: #61a0ff;
   --tab-bg-color: rgb(225, 162, 64);
   --special-bg-color: rgb(190, 90, 184);
   --corner-bevel: 100;
@@ -37,7 +37,7 @@ a:visited {
 }
 
 a:hover {
-  background-color: white;
+  background-color: var(--tab-bg-color);
 }
 
 img {
@@ -170,6 +170,7 @@ hr {
   border-top: 1px dashed black;
   margin: 80px 0 80px;
   z-index: -1;
+  border-bottom: none;
 }
 
 /* MEDIA QUERIES */
@@ -222,7 +223,7 @@ hr {
   }
 
   footer nav ul li:hover {
-    background: white;
+    background: var(--tab-bg-color);
   }
 
   footer nav ul li:last-child {
@@ -230,25 +231,14 @@ hr {
   }
 
   footer nav ul li:last-child:hover {
-    background: white;
+    background: var(--tab-bg-color);
   }
 }
 
 /*seminar layout*/
-.seminar-intro,
-.seminar p,
-.seminar ul {
-  padding-left: 10%;
-  margin: 3rem 0 3rem;
-  width: 83%;
-}
 
-header .seminar-title {
-  padding: 0;
-  border-bottom: 1px solid black;
-  position: fixed;
-  width: 100vw;
-  top: 0;
+.seminar-title {
+  margin-bottom: 120px;
 }
 
 @media (min-width: 800px) {
