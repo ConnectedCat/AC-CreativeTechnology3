@@ -2,7 +2,7 @@
 
 :root {
   font-size: 16px;
-  --main-bg-color: rgb(97,160,255);
+  --main-bg-color: rgb(97, 160, 255);
   --tab-bg-color: rgb(225, 162, 64);
   --special-bg-color: rgb(190, 90, 184);
   --corner-bevel: 100;
@@ -132,7 +132,8 @@ main ul {
 }
 
 main ul li {
-  margin-bottom: 1rem;
+  margin: 0 0.3rem 0;
+  /* margin-bottom: 1rem; */
 }
 
 main a,
