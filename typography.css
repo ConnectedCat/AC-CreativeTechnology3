@@ -82,6 +82,10 @@ li {
   text-align: left;
 }
 
+.text-right {
+  text-align: right;
+}
+
 @media (min-width: 768px) {
   h1 {
     font-size: 6rem;
