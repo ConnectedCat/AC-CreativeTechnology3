@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Connecting ESP32s to AdafruitIo cloud</title>
+
+    <style>
+        .codecontiner {
+            background-color: #222;
+            color: greenyellow;
+            display: inline-block;
+            padding: 15px;
+        }
+        code {
+
+            font-family: 'Courier New', Courier, monospace;
+        }
+    </style>
+</head>
+
+<body>
+    <header></header>
+    <main>
+        <section>
+            <h2>Code for ESP32 to connect to Adafruit IO witten with Arduino IDE</h2>
+            <pre class="codecontiner"><code>// include configuration file with the information about
+// Adafruit IO username and key and WiFi network name
+// password
+#include "config.h"
+
+// define 1 input (potentiometer on pin A2)
+// (remember not to use pins A0, A1, or A5 -
+// see https://learn.adafruit.com/adafruit-huzzah32-esp32-feather/esp32-faq#faq-2991123
+// for details ) 
+#define POTPIN A2
+// define 1 output (LED light on pin 13)
+#define LEDPIN 13
+
+// set up the connection to 'myFeed' feed from your account
+AdafruitIO_Feed *myfeed = io.feed("myFeed");
+// set up the connection to 'thierFeed' feed from another person's account
+AdafruitIO_Feed *theirfeed = io.feed("theirFeed", "theirUsername");
+
+// create a variable to store values from 'theirfeed'
+int theirData = 0;
+
+void setup() {
+    //assign yout pins to be inputs or outputs as needed
+    pinMode(POTPIN, INPUT);
+    pinMode(LEDPIN, OUTPUT);
+    // start the serial connection
+    Serial.begin(115200);
+
+    // wait for serial monitor to open
+    while(! Serial);
+
+    Serial.print("Connecting to Adafruit IO");
+
+    // connect to io.adafruit.com
+    io.connect();
+
+    // set up a message handler for  'thierfeed'.
+    // the handleMessage function (defined below)
+    // will be called whenever a message is
+    // received from adafruit io.
+    theirfeed->onMessage(handleMessage);
+
+    // wait for a connection
+    while(io.status() < AIO_CONNECTED) {
+        Serial.print(".");
+        delay(500);
+    }
+
+    // we are connected
+    Serial.println();
+    Serial.println(io.statusText());
+    myfeed->get();
+}
+
+void loop() {
+    // io.run(); is required for all sketches.
+    // it should always be present at the top of your loop
+    // function. it keeps the client connected to
+    // io.adafruit.com, and processes any incoming data.
+    io.run();
+
+    // create a temporary variable 'value'
+    // and store the reading from the potentiometer in it
+    int value = analogRead(POTPIN);
+    // send it to the serial connection for human review
+    Serial.print("sending -> ");
+    Serial.println(value);
+    // save it to 'myfeed'
+    myfeed->save(value);
+
+    // use theirData to turn the LED on or off
+    // the data stored there is updated in the
+    // 'handleMessage' function below
+
+    if(thierData > 2047){
+        digitalWrite(LEDPIN, HIGH);
+    }
+    else {
+        digitalWrite(LEDPIN, LOW);
+    }
+
+    delay(3000);
+}
+
+// this function is called whenever a 'theirfeed' message
+// is received from Adafruit IO. it was attached to
+// the counter feed in the setup() function above.
+void handleMessage(AdafruitIO_Data *data) {
+    // print the received value to the serial
+    Serial.print("received <- ");
+    Serial.println(data->value());
+
+    // convert the received data to an integer
+    // and store it in a prepared variable
+    theirData = data->toInt();
+}</code></pre>
+        </section>
+    </main>
+</body>
+
+</html>
